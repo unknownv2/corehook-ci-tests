@@ -9,10 +9,7 @@ image: Visual Studio 2017
 platform:
   - x86
   - x64
-  - ARM
-  - ARM64  
 configuration:
-  - Debug
   - Release
 before_build:
   - nuget restore msvc\corehook.sln
@@ -23,7 +20,7 @@ skip_commits:
   files:
     - '**/*.md'
 after_build:
-  7z a corehook.zip '*\Release\*.dll'
+  7z a corehook.zip %APPVEYOR_BUILD_FOLDER%\*\Release\*.dll
 artifacts:
 - path: corehook.zip
   name: Releases
