@@ -19,8 +19,8 @@ skip_commits:
   files:
     - '**/*.md'
 after_build:
-  - cmd: 7z a corehook-%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\*\Release\*.dll
-  - cmd: 7z a corehook-%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\*\Release\*.pdb
+  - cmd: 7z a corehook-%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\*\Release\corehook-*.dll
+  - cmd: 7z a corehook-%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\*\Release\corehook-*.pdb
 
 artifacts:
 - path: corehook-%PLATFORM%.zip
