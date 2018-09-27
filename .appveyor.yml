@@ -10,6 +10,7 @@ platform:
   - x86
   - x64
 configuration:
+  - Debug
   - Release
 before_build:
   - nuget restore msvc\corehook.sln
@@ -19,10 +20,10 @@ skip_commits:
   files:
     - '**/*.md'
 after_build:
-  7z a corehook-%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\*\Release\corehook*.dll
+  7z a corehook-%CONFIGURATION%-%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\*\%CONFIGURATION%\corehook*.dll
  
 artifacts:
-- path: corehook-%PLATFORM%.zip
+- path: corehook-%CONFIGURATION%-%PLATFORM%.zip
   name: Releases
 
 deploy:
